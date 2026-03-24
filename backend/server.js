@@ -7,10 +7,10 @@ const redisClient = require('./config/redis');
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT;
 
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+  origin: process.env.FRONTEND_URL,
   credentials: true
 }));
 
@@ -24,14 +24,14 @@ app.get('/health', async (req, res) => {
   try {
     const [dbResult] = await pool.query('SELECT 1 as result');
     await redisClient.ping();
-    res.status(200).json({ 
-      status: 'ok', 
-      db: 'connected', 
-      redis: 'connected' 
+    res.status(200).json({
+      status: 'ok',
+      db: 'connected',
+      redis: 'connected'
     });
   } catch (error) {
-    res.status(500).json({ 
-      status: 'error', 
+    res.status(500).json({
+      status: 'error',
       message: error.message,
       db: error.code === 'ECONNREFUSED' || error.fatal ? 'disconnected' : 'unknown',
       redis: error.message.includes('Redis') ? 'disconnected' : 'unknown'
