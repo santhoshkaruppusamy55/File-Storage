@@ -4,7 +4,7 @@ This guide explains how to set up and use the Jenkins pipeline to automate the b
 
 ## 1. Prerequisites
 - **Jenkins** installed and running on `localhost:8080`.
-- **Docker** installed and configured for the `jenkins` user.('sudo usermod -aG docker jenkins')
+- **Docker** installed and configured for the `jenkins` user.(`sudo usermod -aG docker jenkins`)
 - **Kind** installed and a cluster created (`kind create cluster --name kind`).
 - **Github Repository** with your code pushed.
 
