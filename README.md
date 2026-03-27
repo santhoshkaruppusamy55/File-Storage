@@ -13,6 +13,11 @@ Go to **Manage Jenkins** > **Plugins** > **Available Plugins** and install:
 - **Docker Pipeline**
 - **Kubernetes CLI**
 
+## After install restart jenkins
+```bash
+sudo systemctl restart jenkins
+sudo systemctl status jenkins
+```
 ## 3. Configure Credentials in Jenkins
 Go to **Manage Jenkins** > **Credentials** > **System** > **Global credentials** and add:
 
