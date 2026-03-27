@@ -53,7 +53,7 @@ kubectl create secret generic aws-secrets \
   --from-literal=AWS_ACCESS_KEY_ID=xxx \
   --from-literal=AWS_SECRET_ACCESS_KEY=yyy
 
-# MySQL Secrets
+# MySQL Secrets(use the password you want) 
 kubectl create secret generic mysql-secrets \
   --from-literal=MYSQL_ROOT_PASSWORD=12345678 \
   --from-literal=MYSQL_DATABASE=file_storage \
